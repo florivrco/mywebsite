@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 60px 0 0 0;
     background: #fff;
     font-family: 'Cairo', Arial, sans-serif;
 }
@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 0 32px 0;
+    margin: 100px 0 32px 0;
     padding: 0 10px;
 }
 .profile-img-large {
@@ -703,4 +703,249 @@ body {
 .contact-info-block i {
     color: #4a6cf7;
     margin-right: 8px;
+}
+
+/* Styles for the new top bar */
+.top-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1001;
+    padding: 10px 0; /* Add some vertical padding above and below the centered bar */
+}
+
+.top-bar {
+    width: 95%; /* Adjust width as needed */
+    max-width: 700px; /* Max width like the project cards for consistency */
+    height: 60px; /* Approximate height */
+    background-color: #4a6cf7; /* Blue color */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.top-bar-left {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px; /* Added letter-spacing for logo appearance */
+}
+
+.top-bar-right {
+    font-size: 1.8rem;
+}
+
+/* Styles for the mobile menu */
+.mobile-menu {
+    position: fixed;
+    top: 80px; /* Position below the top bar */
+    right: 20px; /* Align to the right */
+    background-color: #fff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 15px 0;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    min-width: 150px;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu li {
+    padding: 10px 20px;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #333; /* Dark text color */
+    font-size: 1.1rem;
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.mobile-menu a:hover {
+    color: #4a6cf7; /* Blue on hover */
+}
+
+.mobile-menu.active {
+    display: flex; /* Show when active */
+}
+
+/* From Uiverse.io by 3bdel3ziz-T - New Burger Icon */
+.burger-icon {
+    /* Add any container styles if needed */
+}
+
+.burger {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  transition: 300ms;
+  border-radius: 10px;
+}
+.burger input[type="checkbox"] {
+  appearance: none;
+  transition: 300ms;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  transition: 300ms;
+  transform-origin: center center;
+}
+
+.burger::before {
+  transform: translateY(8px);
+}
+.burger::after {
+  transform: translateY(-8px);
+}
+.burger .line,
+.burger::before,
+.burger::after {
+  width: 25px;
+  height: 2.1px;
+  display: block;
+  background-color: white; /* Changed to white */
+  border-radius: 5px;
+  position: absolute;
+}
+
+.burger .line:checked {
+  width: 0;
+  transition-delay: 100ms;
+}
+.burger:has(.line:checked)::before {
+  animation: animation1 400ms ease-out 0s 1 both;
+}
+.burger:has(.line:checked)::after {
+  animation: animation2 400ms ease-out 0s 1 both;
+}
+
+.burger:hover {
+  background: #aeaeae; /* Keep hover background or change as desired */
+  border-radius: 50%;
+}
+
+.burger:hover .line,
+.burger:hover::before,
+.burger:hover::after {
+  background: #e8e8e8; /* Keep hover line color or change as desired */
+}
+
+.burger:active {
+  scale: 0.95;
+}
+@keyframes animation1 {
+  0% {
+    transform: translateY(8px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(45deg);
+  }
+}
+@keyframes animation2 {
+  0% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-45deg);
+  }
+}
+
+@media (min-width: 901px) {
+    .mobile-menu {
+        display: none !important;
+    }
+    .switch {
+        display: none !important;
+    }
+    .burger-icon {
+        display: none !important; /* Hide burger icon on larger screens */
+    }
+}
+
+/* Styles for the new dropdown button and menu */
+.dropdown-container {
+    position: fixed;
+    top: 20px; /* Adjust vertical position as needed */
+    right: 20px; /* Position on the right */
+    z-index: 1000;
+}
+
+.dropdown-button {
+    background-color: #4a6cf7; /* Blue background */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-button:hover {
+    background-color: #1e40af; /* Darker blue on hover */
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Position below the button */
+    right: 0; /* Align to the right of the button */
+    background-color: #fff; /* White background */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    min-width: 150px;
+    display: none; /* Hidden by default */
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 8px 15px;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333; /* Dark text color */
+    font-size: 1rem;
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    color: #4a6cf7; /* Blue on hover */
+}
+
+.dropdown-menu.active {
+    display: block; /* Show when active */
 } 
